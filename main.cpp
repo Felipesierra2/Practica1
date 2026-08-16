@@ -1,4 +1,6 @@
 #include <iostream>
+#include <windows.h>
+
 #include "ejercicios.h"
 #include "validaciones.h"
 
@@ -6,6 +8,9 @@ using namespace std;
 
 int main()
 {
+    SetConsoleOutputCP(CP_UTF8);
+    SetConsoleCP(CP_UTF8);
+
     char opcion;
 
     std::cout << "==========Bienvenido al menú de la practica===========" << std::endl;

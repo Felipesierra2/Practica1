@@ -54,3 +54,17 @@ int validarEntero(){
         std::cout << "Entrada invalida. Ingrese un numero: ";
     }
 }
+
+float validarFloat(){
+    float numero;
+
+    while (!(std::cin >> numero))
+    {
+        std::cin.clear();
+        std::cin.ignore(1000, '\n');
+
+        std::cout << "Entrada invalida. Ingrese un numero: ";
+    }
+
+    return numero;
+}

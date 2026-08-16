@@ -3,5 +3,6 @@
 
 char obtenerOpcionValida();
 int validarEntero();
+float validarFloat();
 
 #endif // VALIDACIONES_H
