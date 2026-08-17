@@ -346,7 +346,6 @@ void ejercicios(){
         }
         else if(opcion == 0){
             std::cout << "Finalizando ejecución del programa " << std::endl;
-
             break;
         }
     }

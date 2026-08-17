@@ -2,6 +2,7 @@
 #include <windows.h>
 
 #include "ejercicios.h"
+#include "problemas.h"
 #include "validaciones.h"
 
 using namespace std;
@@ -28,6 +29,7 @@ int main()
             break;
         case '2':
             std::cout << "Inciando problemas..." << std::endl;
+            problemas();
             break;
         case'0':
             std::cout << "Finalizando ejecución..." << std::endl;

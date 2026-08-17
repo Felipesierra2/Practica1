@@ -55,16 +55,14 @@ int validarEntero(){
     }
 }
 
-float validarFloat(){
-    float numero;
-
-    while (!(std::cin >> numero))
-    {
-        std::cin.clear();
-        std::cin.ignore(1000, '\n');
-
-        std::cout << "Entrada invalida. Ingrese un numero: ";
+bool esVocal(char c) {
+    if (c >= 'A' && c <= 'Z') {
+        c = c + 32;
     }
 
-    return numero;
+    return (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u');
+}
+
+bool esLetra(char c) {
+    return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
 }

@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_executable(Practica1 main.cpp
     validaciones.h validaciones.cpp
-    ejercicios.h ejercicios.cpp)
+    ejercicios.h ejercicios.cpp
+    problemas.h problemas.cpp)
 
 include(GNUInstallDirs)
 install(TARGETS Practica1

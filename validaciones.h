@@ -3,6 +3,7 @@
 
 char obtenerOpcionValida();
 int validarEntero();
-float validarFloat();
+bool esVocal(char c);
+bool esLetra(char c);
 
 #endif // VALIDACIONES_H
