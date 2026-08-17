@@ -18,6 +18,8 @@ void ejercicios(){
         std::cout << "17.Ejercicio 17" << std::endl;
         std::cout << "19.Ejercicio 19" << std::endl;
         std::cout << "21.Ejercicio 21" << std::endl;
+        std::cout << "23.Ejercicio 23" << std::endl;
+        std::cout << "25.Ejercicio 25" << std::endl;
         std::cout << "Ingrese una de las siguientes opciones: ";
 
         opcion = validarEntero();
@@ -143,6 +145,65 @@ void ejercicios(){
             else std::cout << "El numero: " << N << " no es primo" << std::endl;
 
         }else if(opcion == 21){
+            char c;
+
+            std::cout << "Ingrese un caracter: ";
+            std::cin >> c;
+
+            if (c >= 'A' && c <= 'Z') {
+
+                c = c + ('a' - 'A');
+                std::cout << "Letra convertida: " << c << std::endl;
+            }
+
+            else if (c >= 'a' && c <= 'z') {
+
+                c = c - ('a' - 'A');
+                std::cout << "Letra convertida: " << c << std::endl;
+            }
+            else {
+                std::cout << "El caracter ingresado no es una letra" << std::endl;
+            }
+        }else if(opcion == 23){
+            std::cout << "Ingrese un numero entero: ";
+            int A = validarEntero();
+
+            std::cout << "Ingrese un numero entero: ";
+            int B = validarEntero();
+
+            int resulA = A;
+            int resulB = B;
+            int total = 1;
+            int cont = 2;
+
+            while (resulA != 1 || resulB != 1){
+                if((resulA % cont) == 0 || (resulB % cont) == 0) {
+                    total = total * cont;
+
+                    if((resulA % cont) == 0){
+                        resulA = resulA / cont;
+                    }
+
+                    if((resulB % cont) == 0){
+                        resulB = resulB / cont;
+                    }
+
+                    if ((resulA % cont) == 0 || (resulB % cont) == 0){
+                        continue;
+                    }else{
+                        cont+=1;
+                    }
+                }else{
+                    cont+=1;
+                }
+            }
+            if(resulA == 1 || resulB == 1){
+                std::cout << "El MCM entre: " << A << " y " << B << " es: " << total << std::endl;
+            }else{
+                total = total * cont;
+                std::cout << "El MCM entre: " << A << " y " << B << " es: " << total << std::endl;
+            }
+        }else if(opcion == 25){
 
         }
         else if(opcion == 0){
