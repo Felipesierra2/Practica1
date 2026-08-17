@@ -15,6 +15,9 @@ void ejercicios(){
         std::cout << "11.Ejercicio 11" << std::endl;
         std::cout << "13.Ejercicio 13" << std::endl;
         std::cout << "15.Ejercicio 15" << std::endl;
+        std::cout << "17.Ejercicio 17" << std::endl;
+        std::cout << "19.Ejercicio 19" << std::endl;
+        std::cout << "21.Ejercicio 21" << std::endl;
         std::cout << "Ingrese una de las siguientes opciones: ";
 
         opcion = validarEntero();
@@ -108,6 +111,39 @@ void ejercicios(){
                 }
             }
             std::cout << "El resultado de la suma de los valores ingresados es: " << suma << std::endl;
+        }else if(opcion == 17){
+            int suma = 0;
+            int ant = 0;
+
+            while(true){
+                std::cout << "Ingrese un numero entero: ";
+                int init = validarEntero();
+                if(init != 0){
+                    suma+= init;
+                    if(init >= ant){
+                        ant = init;
+                    }
+                }else if(init == 0){
+                    break;
+                }
+            }
+            std::cout << "El valor mayor de los valores ingresados es: " << ant << std::endl;
+        }else if(opcion == 19){
+            std::cout << "Ingrese un numero entero: ";
+            int N = validarEntero();
+            int cont = 0;
+
+            for (int i = 1; i <= N; i++){
+                if (N % i == 0){
+                    cont+=1;
+                }
+            }
+
+            if (cont == 2) std::cout << "El numero: " << N << " es primo" << std::endl;
+            else std::cout << "El numero: " << N << " no es primo" << std::endl;
+
+        }else if(opcion == 21){
+
         }
         else if(opcion == 0){
             std::cout << "Finalizando ejecución del programa " << std::endl;
