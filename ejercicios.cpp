@@ -1,6 +1,7 @@
 #include "ejercicios.h"
 #include "validaciones.h"
 #include <iostream>
+#include <limits>
 
 void ejercicios(){
     int opcion;
@@ -20,6 +21,9 @@ void ejercicios(){
         std::cout << "21.Ejercicio 21" << std::endl;
         std::cout << "23.Ejercicio 23" << std::endl;
         std::cout << "25.Ejercicio 25" << std::endl;
+        std::cout << "27.Ejercicio 27" << std::endl;
+        std::cout << "29.Ejercicio 29" << std::endl;
+
         std::cout << "Ingrese una de las siguientes opciones: ";
 
         opcion = validarEntero();
@@ -204,7 +208,141 @@ void ejercicios(){
                 std::cout << "El MCM entre: " << A << " y " << B << " es: " << total << std::endl;
             }
         }else if(opcion == 25){
+            std::cout << "Ingrese un numero entero: ";
+            int N = validarEntero();
+            int contador = 0;
 
+            if (N == 0) {
+                contador = 1;
+            } else {
+                if (N < 0) {
+                    N = -N;
+                }
+
+                while (N > 0) {
+                    N = N / 10;
+                    contador++;
+                }
+
+            }
+
+            std::cout << "El número tiene " << contador << " dígito(s)" << std::endl;
+        }else if(opcion == 27){
+            double num1, num2, resultado;
+            char operacion;
+            bool entradaValida;
+
+            auto limpiarBuffer = []() {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            };
+
+            do {
+                std::cout << "Ingrese el primer número: ";
+                std::cin >> num1;
+
+                if (std::cin.fail()) {
+                    std::cout << "Error: Debe ingresar un número válido" << std::endl;
+                    limpiarBuffer();
+                    entradaValida = false;
+
+                } else {
+                    entradaValida = true;
+                }
+            } while (!entradaValida);
+
+            do {
+                std::cout << "Ingrese la operación (+, -, *, /): ";
+                std::cin >> operacion;
+
+                if (operacion != '+' && operacion != '-' && operacion != '*' && operacion != '/') {
+                    std::cout << "Error: Operación no válida. Use +, -, * o /" << std::endl;
+                    limpiarBuffer();
+                    entradaValida = false;
+
+                } else {
+                    entradaValida = true;
+                }
+            } while (!entradaValida);
+
+            do {
+                std::cout << "Ingrese el segundo número: ";
+                std::cin >> num2;
+
+                if (std::cin.fail()) {
+                    std::cout << "Error: Debe ingresar un número válido" << std::endl;
+                    limpiarBuffer();
+                    entradaValida = false;
+                } else {
+                    entradaValida = true;
+                }
+            } while (!entradaValida);
+
+            if (operacion == '+') {
+                resultado = num1 + num2;
+                std::cout << num1 << "+" << num2 << "=" << resultado << std::endl;
+            }
+            else if (operacion == '-') {
+                resultado = num1 - num2;
+                std::cout << num1 << "-" << num2 << "=" << resultado << std::endl;
+            }
+            else if (operacion == '*') {
+                resultado = num1 * num2;
+                std::cout << num1 << "*" << num2 << "=" << resultado << std::endl;
+            }
+            else if (operacion == '/') {
+                if (num2 != 0) {
+                    resultado = num1 / num2;
+                    std::cout << num1 << "/" << num2 << "=" << resultado << std::endl;
+                } else {
+                    std::cout << "Error: No se puede dividir entre cero" << std::endl;
+                }
+            }
+        }else if(opcion == 29){
+            int ini = 0;
+            int fin = 100;
+            bool entradaValida;
+
+            auto limpiarBuffer = []() {
+                std::cin.clear();
+                std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+            };
+
+            while(true){
+                int result = (ini + fin) / 2;
+                std::cout << "El numero es: " << result << std::endl;
+                char ope;
+
+                do{
+                    std::cout << "Ingrese uno de los siguientes operadores >, < o =: ";
+                    std::cin >> ope;
+
+                    if (ope != '>' && ope != '<' && ope != '=') {
+                        std::cout << "Error: Operación no válida. Use >,< o =" << std::endl;
+                        limpiarBuffer();
+                        entradaValida = false;
+
+                    } else {
+                        entradaValida = true;
+                    }
+                }while(!entradaValida);
+
+                if(ope == '>'){
+                    ini = result + 1;
+
+                }else if(ope == '<'){
+                    fin = result - 1;
+
+                }else if(ope == '=') {
+                    std::cout <<"Respuesta correcta" << std::endl;
+                    break;
+                }
+
+                if(ini > fin){
+                    std::cout << "Error: No se puede encontrar el numero con las indicaciones dadas" << std::endl;
+                    return;
+                }
+            }
         }
         else if(opcion == 0){
             std::cout << "Finalizando ejecución del programa " << std::endl;
