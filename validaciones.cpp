@@ -36,7 +36,7 @@ bool esNumero(char entrada[]) {
 }
 
 int validarEntero(){
-    char entrada[20];
+    char entrada[100];
 
     while (true) {
         std::cin >> entrada;
@@ -65,4 +65,31 @@ bool esVocal(char c) {
 
 bool esLetra(char c) {
     return (c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z');
+}
+
+int calcularMCD(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int calcularMCM(int a, int b) {
+    return (a / calcularMCD(a, b)) * b;
+}
+
+bool esPrimo(int numero) {
+    if (numero <= 1) {
+        return false;
+    }
+
+    for (int i = 2; i * i <= numero; i++) {
+        if (numero % i == 0) {
+            return false;
+        }
+    }
+
+    return true;
 }
