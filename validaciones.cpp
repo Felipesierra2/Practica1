@@ -93,3 +93,17 @@ bool esPrimo(int numero) {
 
     return true;
 }
+
+int contarDivisores(int numero){
+    int divisores = 0;
+
+    for (int i = 1; i <= numero; i++)
+    {
+        if (numero % i == 0)
+        {
+            divisores++;
+        }
+    }
+
+    return divisores;
+}

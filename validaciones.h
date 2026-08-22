@@ -8,5 +8,6 @@ bool esLetra(char c);
 int calcularMCD(int a, int b);
 int calcularMCM(int a, int b);
 bool esPrimo(int numero);
+int contarDivisores(int numero);
 
 #endif // VALIDACIONES_H

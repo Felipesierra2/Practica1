@@ -15,6 +15,7 @@ void problemas(){
         std::cout << "11.Problema 11" << std::endl;
         std::cout << "13.Problema 13" << std::endl;
         std::cout << "15.Problema 15" << std::endl;
+        std::cout << "17.Problema 17" << std::endl;
         std::cout << "Ingrese una de las siguientes opciones: ";
 
         opcion = validarEntero();
@@ -213,6 +214,124 @@ void problemas(){
 
             std::cout << "El resultado de la suma es: " << suma << std::endl;
         }else if(opcion == 15){
+            std::cout << "Ingrese un numero impar: ";
+            int n = validarEntero();
+
+            int** matriz = new int*[n];
+
+            for (int i = 0; i < n; i++)
+            {
+                matriz[i] = new int[n];
+            }
+
+            int fila = n / 2;
+            int columna = n / 2;
+
+            int numero = 1;
+
+            matriz[fila][columna] = numero;
+
+            int direccion = 0;
+
+            int pasos = 1;
+
+            while (numero < n * n)
+            {
+                for (int repeticion = 0; repeticion < 2; repeticion++)
+                {
+                    for (int i = 0; i < pasos; i++)
+                    {
+                        if (direccion == 0)
+                        {
+                            columna++;
+                        }
+                        else if (direccion == 1)
+                        {
+                            fila++;
+                        }
+                        else if (direccion == 2)
+                        {
+                            columna--;
+                        }
+                        else if (direccion == 3)
+                        {
+                            fila--;
+                        }
+
+                        numero++;
+
+                        if (numero <= n * n)
+                        {
+                            matriz[fila][columna] = numero;
+                        }
+                    }
+
+                    direccion++;
+
+                    if (direccion == 4)
+                    {
+                        direccion = 0;
+                    }
+                }
+
+                pasos++;
+            }
+
+            std::cout << "\nEspiral:\n\n";
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    std::cout << matriz[i][j] << "\t";
+                }
+
+                std::cout << "\n";
+            }
+
+            int suma = 0;
+
+            for (int i = 0; i < n; i++)
+            {
+                for (int j = 0; j < n; j++)
+                {
+                    if (i == j || i + j == n - 1)
+                    {
+                        suma += matriz[i][j];
+                    }
+                }
+            }
+
+            std::cout << "\nLa suma de las diagonales es: " << suma << std::endl;
+
+            for (int i = 0; i < n; i++)
+            {
+                delete[] matriz[i];
+            }
+
+            delete[] matriz;
+
+        }else if(opcion == 17){
+            std::cout << "Ingrese k: ";
+            int k = validarEntero();
+
+            int n = 1;
+            int numeroTriangular;
+            int divisores;
+
+            do
+            {
+                numeroTriangular = n * (n + 1) / 2;
+
+                divisores = contarDivisores(numeroTriangular);
+
+                n++;
+
+            } while (divisores <= k);
+
+            std::cout << "El numero es: " << numeroTriangular
+                 << " que tiene " << divisores
+                 << " divisores" << std::endl;
         }
         else if(opcion == 0){
             std::cout << "Finalizando el programa..." << std::endl;
